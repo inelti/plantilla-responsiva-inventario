@@ -1,0 +1,508 @@
+/* Diseño responsivo */
+
+/* Ajustes para pantallas de hasta 1200px de ancho */
+@media (max-width: 1200px) {
+  body .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 1002;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 0;
+  }
+
+  body .sidebar.show {
+    transform: translateX(0);
+  }
+
+  body .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+    padding-top: 80px;
+  }
+
+  body .main-header {
+    left: 0;
+    width: 100%;
+    padding-left: 15px;
+  }
+
+  body .menu-toggle {
+    display: block;
+    font-size: 18px;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  /* Ajustes del logo para pantallas pequeñas */
+  .logo-full {
+    display: none;
+  }
+
+  .logo-icon {
+    display: block !important;
+    max-width: 15%;
+    height: auto;
+    margin-right: 15px;
+  }
+
+  body .chart-card,
+  body .card {
+    width: 100%;
+  }
+
+  /* Estilos para el overlay */
+  body .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    transition: background 0.3s ease-in-out;
+    z-index: 1001;
+  }
+
+  body .overlay.show {
+    display: block;
+  }
+
+  /* Ajustes para el cuadro de búsqueda en pantallas medianas */
+  .search-bar input {
+    width: 50%; /* Proporcional al ancho de su contenedor */
+    max-width: 200px; /* Límite máximo para el ancho */
+  }
+}
+
+/* Ajustes para pantallas de hasta 600px de ancho */
+@media (max-width: 600px) {
+  .main-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: auto; /* Creates space between .header-left and .header-center */
+  }
+
+  .header-center {
+    margin-left: 15px; /* Adjust space between .header-left and .header-center */
+    justify-content: center;
+  }
+
+  .dashboard-title {
+    font-size: 20px;
+  }
+
+  /* Oculta el cuadro de búsqueda por defecto en pantallas pequeñas */
+  .search-bar input {
+    display: none;
+  }
+
+  /* Centra el ícono de búsqueda */
+  .header-center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Muestra el cuadro de búsqueda cuando está activo */
+  .search-bar.active input {
+    display: block;
+    width: 70vw; /* Proporcional al ancho de la pantalla */
+    position: absolute;
+    top: 50px;
+    right: 0;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: white;
+    border-radius: 20px;
+  }
+
+  body .user-information {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  body .profile-img {
+    height: 30px;
+    width: 30px;
+  }
+
+  .logo-full {
+    max-width: 90%;
+    height: auto;
+    margin: 10px auto;
+  }
+
+  footer {
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+/* Mostrar logo-icon por defecto en pantallas grandes */
+.logo-icon {
+  display: none;
+}
+
+/* Estilos generales y contenedor general */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff4ea;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Encabezado principal */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff4ea;
+  position: fixed;
+  top: 0;
+  left: 290px;
+  right: 40px;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.dashboard-title {
+  font-size: 24px;
+  font-weight: 100;
+}
+
+.search-bar input {
+  padding: 8px;
+  margin-right: 15px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+.search-toggle {
+  cursor: pointer;
+  font-size: 18px;
+  color: #050F24;
+  margin-right: 15px;
+}
+
+/* Información del usuario y menú de perfil */
+.user-information {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-information i {
+  font-size: 16px;
+  color: #050F24;
+  cursor: pointer;
+}
+
+.profile-button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #6F757E;
+  gap: 10px;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.profile-button i {
+  margin-left: 5px;
+  font-size: 12px;
+  color: #050F24;
+}
+
+/* Menú desplegable del perfil */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  min-width: 150px;
+  z-index: 1000;
+  padding: 7px 0;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #050F24;
+  font-size: 14px;
+  padding: 10px 20px;
+  width: 100%;
+  transition: background-color 0.1s;
+}
+
+.dropdown-item i {
+  margin-right: 15px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.settings-item {
+  color: #35BACE;
+}
+
+.settings-item i {
+  color: #35BACE;
+}
+
+.dropdown-separator {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 7px 0px;
+}
+
+.dropdown-content.show,
+.dropdown-menu.show {
+  display: flex;
+}
+
+/* Barra lateral (Sidebar) */
+.sidebar {
+  width: 240px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 30px;
+  position: fixed;
+  top: 40px;
+  bottom: 40px;
+  left: 20px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  text-align: center;
+}
+
+.logo-full {
+  display: block;
+  max-width: 60%;
+  height: auto;
+  margin: 30px auto;
+}
+
+/* Menú del sidebar */
+.menu {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.menu-item {
+  text-decoration: none;
+  color: #6F757E;
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px 0 0 0;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.1s;
+}
+
+.menu-item i {
+  font-size: 18px;
+  margin-right: 15px;
+  width: 20px;
+  text-align: center;
+}
+
+.menu-item.active {
+  color: white;
+  background-color: #FF8E29;
+  border-radius: 10px;
+}
+
+.menu-item.active:hover {
+  background-color: #fa841c;
+  color: #f8f8f8;
+}
+
+.menu-item:hover {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+.menu-item.dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.menu-item.dropdown i.fas.fa-chevron-down {
+  margin-left: 7px;
+  font-size: 14px;
+}
+
+.dropdown-content {
+  display: none;
+  flex-direction: column;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  background-color: transparent;
+  padding-bottom: 10px;
+}
+
+.dropdown-content a {
+  text-decoration: none;
+  color: #6F757E;
+  font-size: 16px;
+  padding: 10px;
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.1s;
+  width: 100%;
+}
+
+.dropdown-content a:hover {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+}
+
+.dropdown-content a i {
+  font-size: 18px;
+  margin-right: 15px;
+  width: 20px;
+  text-align: center;
+}
+
+/* Botón de Cerrar Sesión */
+.logout {
+  color: #FF8E29;
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  transition: background-color 0.1s;
+  padding: 10px;
+}
+
+.logout i {
+  margin-right: 10px;
+}
+
+.logout:hover {
+  background-color: #FF8E29;
+  color: white;
+  border-radius: 10px;
+}
+
+/* Contenido principal */
+.main-content {
+  flex: 1;
+  padding: 0 40px 0 20px;
+  background-color: #fff4ea;
+  margin-left: 290px;
+  padding-top: 80px;
+  box-sizing: border-box;
+}
+
+/* Pie de página */
+footer {
+  text-align: center;
+  font-size: 14px;
+  color: #FF8E29;
+  width: calc(100% - 290px);
+  background-color: #fff4ea;
+  padding: 20px 0;
+  margin-left: 290px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+  footer {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+/* Overlay (superposición) */
+.overlay {
+  display: none;
+}

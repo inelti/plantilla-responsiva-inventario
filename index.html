@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/elegent-favicon-logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventario</title>
+    <link rel="stylesheet" href="assets/styles/typography.css">
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </head>
+  <body>
+    <div class="overlay"></div>
+
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="assets/images/inel.png" alt="Elegant Logo" class="logo-full" />
+      </div>
+      <nav class="menu">
+        <a href="#" class="menu-item active">
+          <i class="fas fa-home"></i> Inicio
+        </a>
+        <a href="#" class="menu-item">
+          <i class="fas fa-file-alt"></i> Informes
+        </a>
+        <a href="#" class="menu-item">
+          <i class="fas fa-box-open"></i> Inventario
+        </a>
+        <a href="#" class="menu-item">
+          <i class="fas fa-comment"></i> Chat Temporal
+        </a>
+        <a href="#" class="menu-item dropdown" id="maintenanceDropdown">
+          <i class="fas fa-tools"></i> Mantenimiento
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-content" id="maintenanceMenu">
+          <li><a href="#"><i class="fas fa-warehouse"></i> Categorías</a></li>
+          <li><a href="#"><i class="fas fa-car"></i> Proveedores</a></li>
+          <li><a href="#"><i class="fas fa-users"></i> Usuarios</a></li>
+        </ul>
+        <a href="#" class="menu-item logout">
+          <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+        </a>
+      </nav>
+    </aside>
+
+    <header class="main-header">
+      <div class="header-left">
+        <img src="assets/images/inel-logo.png" alt="Logo" class="logo-icon" />
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      
+      <div class="header-center">
+        <div class="search-bar">
+          <i class="fas fa-search search-toggle" id="searchToggle"></i>
+          <input type="text" placeholder="Search..." id="searchInput" />
+        </div>
+      </div>
+
+      <div class="header-right">
+        <i class="fas fa-flag"></i>
+        <i class="fas fa-bell"></i>
+        <div class="dropdown">
+          <button class="profile-button" id="dropdownButton">
+            <img src="assets/images/user-profile.jpg" alt="Edansiel" class="profile-img">
+            Edansiel
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <a href="#" class="dropdown-item"><i class="fas fa-home"></i> Home</a>
+            <a href="#" class="dropdown-item"><i class="fas fa-user"></i> Profile</a>
+            <div class="dropdown-separator"></div>
+            <a href="#" class="dropdown-item settings-item"><i class="fas fa-cog"></i> Settings</a>
+          </div>
+        </div>      
+      </div>
+    </header>
+
+    <main class="main-content">
+    </main>
+
+    <footer>
+      <p>Made with ❤️ by Eber Daniel</p>
+    </footer>
+
+    <!-- Carga Chart.js primero -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Luego carga tu script personalizado -->
+    <script src="assets/js/scripts.js"></script>
+
+  </body>
+</html>
