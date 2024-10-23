@@ -1,6 +1,4 @@
-/* Diseño responsivo */
-
-/* Ajustes para pantallas de hasta 1200px de ancho */
+/* Sidebar styles for medium screens (up to 1200px) */
 @media (max-width: 1200px) {
   body .sidebar {
     position: fixed;
@@ -44,16 +42,14 @@
     border: none;
   }
 
-  /* Ajustes del logo para pantallas pequeñas */
   .logo-full {
     display: none;
   }
 
   .logo-icon {
-    display: block !important;
-    max-width: 15%;
+    display: inline-block;
+    width: 40px;
     height: auto;
-    margin-right: 15px;
   }
 
   body .chart-card,
@@ -61,7 +57,6 @@
     width: 100%;
   }
 
-  /* Estilos para el overlay */
   body .overlay {
     display: none;
     position: fixed;
@@ -78,15 +73,14 @@
     display: block;
   }
 
-  /* Ajustes para el cuadro de búsqueda en pantallas medianas */
   .search-bar input {
-    width: 50%; /* Proporcional al ancho de su contenedor */
-    max-width: 200px; /* Límite máximo para el ancho */
+    width: 50%;
+    max-width: 200px;
   }
 }
 
-/* Ajustes para pantallas de hasta 600px de ancho */
-@media (max-width: 600px) {
+/* Header styles for very small screens (up to 570px) */
+@media (max-width: 570px) {
   .main-header {
     flex-direction: row;
     justify-content: space-between;
@@ -97,42 +91,43 @@
   .header-left {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-right: auto; /* Creates space between .header-left and .header-center */
+    gap: 0px;
+    margin-right: auto;
   }
 
   .header-center {
-    margin-left: 15px; /* Adjust space between .header-left and .header-center */
+    display: flex;
     justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 
   .dashboard-title {
     font-size: 20px;
   }
 
-  /* Oculta el cuadro de búsqueda por defecto en pantallas pequeñas */
   .search-bar input {
     display: none;
   }
 
-  /* Centra el ícono de búsqueda */
   .header-center {
     display: flex;
     justify-content: center;
     width: 100%;
   }
 
-  /* Muestra el cuadro de búsqueda cuando está activo */
   .search-bar.active input {
     display: block;
-    width: 70vw; /* Proporcional al ancho de la pantalla */
+    width: 37vw;
     position: absolute;
-    top: 50px;
+    top: 35px;
     right: 0;
+    left: 1.5vw;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background: white;
     border-radius: 20px;
+    z-index: 1001;
   }
 
   body .user-information {
@@ -152,6 +147,7 @@
     margin: 10px auto;
   }
 
+  /* Footer styles - centered text and consistent width on large screens */
   footer {
     width: 100%;
     margin-left: 0;
@@ -159,14 +155,26 @@
   }
 }
 
-/* Mostrar logo-icon por defecto en pantallas grandes */
+/* General logo styles */
 .logo-icon {
   display: none;
 }
 
-/* Estilos generales y contenedor general */
+@media (max-width: 1200px) {
+  .logo-icon {
+    display: inline-block;
+    width: 40px;
+    height: auto;
+  }
+
+  .logo-full {
+    display: none;
+  }
+}
+
 * {
   box-sizing: border-box;
+  outline: none;
 }
 
 body {
@@ -179,7 +187,7 @@ body {
   min-height: 100vh;
 }
 
-/* Encabezado principal */
+/* Main header styles - fixed positioning and layout settings */
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -196,7 +204,8 @@ body {
 .header-left {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
+  flex-shrink: 1;
 }
 
 .header-center {
@@ -208,8 +217,11 @@ body {
 
 .header-right {
   display: flex;
+  margin-left: 5px;
   align-items: center;
   gap: 20px;
+  flex-shrink: 1;
+  justify-content: flex-end;
 }
 
 .menu-toggle {
@@ -219,6 +231,17 @@ body {
 .dashboard-title {
   font-size: 24px;
   font-weight: 100;
+}
+
+/* Styles for search bar - centering and setting maximum width */
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  z-index: 1000;
 }
 
 .search-bar input {
@@ -234,9 +257,9 @@ body {
   font-size: 18px;
   color: #050F24;
   margin-right: 15px;
+  margin-left: 15px;
 }
 
-/* Información del usuario y menú de perfil */
 .user-information {
   display: flex;
   align-items: center;
@@ -273,7 +296,7 @@ body {
   color: #050F24;
 }
 
-/* Menú desplegable del perfil */
+/* Dropdown menu styles - positioned below the button and styled for visibility */
 .dropdown {
   position: relative;
 }
@@ -287,7 +310,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   min-width: 150px;
-  z-index: 1000;
+  z-index: 1100;
   padding: 7px 0;
   flex-direction: column;
 }
@@ -337,7 +360,6 @@ body {
   display: flex;
 }
 
-/* Barra lateral (Sidebar) */
 .sidebar {
   width: 240px;
   background-color: #ffffff;
@@ -364,7 +386,6 @@ body {
   margin: 30px auto;
 }
 
-/* Menú del sidebar */
 .menu {
   display: flex;
   flex-direction: column;
@@ -453,7 +474,7 @@ body {
   text-align: center;
 }
 
-/* Botón de Cerrar Sesión */
+/* Styles for logout button - padding and hover effect */
 .logout {
   color: #FF8E29;
   display: flex;
@@ -473,7 +494,7 @@ body {
   border-radius: 10px;
 }
 
-/* Contenido principal */
+/* Main content styles - managing layout with padding and box-sizing */
 .main-content {
   flex: 1;
   padding: 0 40px 0 20px;
@@ -483,7 +504,7 @@ body {
   box-sizing: border-box;
 }
 
-/* Pie de página */
+/* Footer styles - centered text and consistent width on large screens */
 footer {
   text-align: center;
   font-size: 14px;
@@ -502,7 +523,32 @@ footer {
   }
 }
 
-/* Overlay (superposición) */
 .overlay {
   display: none;
+}
+
+/* Styles for search bar and its responsive behavior */
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  z-index: 1000;
+}
+
+.search-bar input {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  min-width: 100px;
+  max-width: 80vw;
+  transition: width 0.3s ease;
+}
+
+.search-bar i {
+  cursor: pointer;
+  font-size: 18px;
+  color: #050F24;
 }
